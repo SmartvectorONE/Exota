@@ -12,7 +12,7 @@ COPY . /usr/share/nginx/html
 
 # Exposeer poort 80, de standaard HTTP-poort waar Nginx op luistert.
 # Coolify zal verkeer naar deze poort doorsturen.
-EXPOSE 80
+EXPOSE 8888
 
 # Dit is de standaard command voor Nginx om te starten.
 # Je kunt deze weglaten, het is het ENTRYPOINT van de base image.
