@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Identifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Dit is de hoofdweergave, vergelijkbaar met de camera-feed -->
+        <div class="main-view">
+            <!-- De foto upload input is nu visueel verborgen en wordt via een knop geactiveerd -->
+            <input type="file" id="fileInput" accept="image/*" class="hidden-file-input">
+            
+            <!-- De afbeelding preview die de "camera view" vult -->
+            <img id="imagePreview" src="#" alt="Voorbeeld van geüploade foto" class="image-preview hidden">
+
+            <!-- Resultatenkaart als overlay -->
+            <div id="resultBox" class="result-box hidden">
+                <div class="result-thumbnail-placeholder"></div> <!-- Kleine cirkel placeholder -->
+                <div class="result-details">
+                    <h2>Identificatie:</h2>
+                    <p><strong>Soort:</strong> <span id="spanSoort"></span></p>
+                    <p><strong>Invasieve exoot:</strong> <span id="spanExoot"></span></p>
+                    <p><strong>Zekerheid:</strong> <span id="spanZekerheid"></span></p>
+                    <p><strong>Locatie:</strong> <span id="spanLocatie"></span></p> 
+                </div>
+            </div>
+
+            <!-- Foutmeldingen, ook als overlay -->
+            <p id="errorMessage" class="message error hidden"></p>
+
+            <!-- Initiële instructie tekst, zichtbaar als er geen foto is -->
+            <div id="initialInstruction" class="initial-instruction">
+                <h1>Plant Identifier</h1>
+                <p>Tik op 'Fotos' om een afbeelding te kiezen voor identificatie.</p>
+            </div>
+        </div>
+
+        <!-- De onderste actiebalk -->
+        <div class="bottom-bar">
+            <!-- 'Fotos' knop om de file input te triggeren -->
+            <button id="photosButton" class="action-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                    <path d="M19 5H5C3.9 5 3 5.9 3 7v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zM6 17l3-4 2.25 3 3-4 5 7H6z"/>
+                </svg>
+                <span>Fotos</span>
+            </button>
+            
+            <!-- Grote ronde knop voor uploaden -->
+            <button id="uploadButton" class="shutter-button" disabled>
+                <span id="shutterButtonText">Upload</span>
+            </button>
+
+            <!-- 'Done' knop voor reset -->
+            <button id="resetButton" class="action-button done-button hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <span>Done</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
